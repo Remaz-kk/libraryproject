@@ -1,9 +1,25 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.shortcuts import render
 
+from django.shortcuts import render
+
+def index(request):
+    return render(request, "bookmodule/index.html")
+
+def listbooks(request):
+    return render(request, "bookmodule/listbooks.html")
+
+def onebook(request, bookId):
+    return render(request, "bookmodule/onebook.html")
+
+def aboutus(request):
+    return render(request, "bookmodule/aboutus.html")
+    
 def index(request):
     name = request.GET.get("name") or "world!"
     return render(request, "bookmodule/index.html", {"name": name})
+
 
 def index2(request, val1=0):
     return HttpResponse("value1 = " + str(val1))

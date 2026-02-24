@@ -1,0 +1,19 @@
+{% extends "bookmodule/layouts/base.html" %}
+{% load static %}
+
+{% block title %}One Book{% endblock title %}
+
+{% block content %}
+<h1>One Book</h1>
+
+<p>Book ID: <strong>{{ bookId }}</strong></p>
+
+{% if bookId == 1 %}
+  <img src="{% static 'book1.jpg' %}" width="200" alt="Book 1">
+{% elif bookId == 2 %}
+  <img src="{% static 'book2.jpg' %}" width="200" alt="Book 2">
+{% else %}
+  <img src="{% static 'book3.jpg' %}" width="200" alt="Book 3">
+{% endif %}
+
+{% endblock content %}

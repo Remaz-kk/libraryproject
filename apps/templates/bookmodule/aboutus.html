@@ -1,0 +1,12 @@
+{% extends "bookmodule/layouts/base.html" %}
+{% load static %}
+
+{% block title %}About Us{% endblock title %}
+
+{% block content %}
+<h1>About Us</h1>
+
+<p>This website is implemented using Django templates and static files.</p>
+
+<img src="{% static 'book3.jpg' %}" width="200" alt="Book">
+{% endblock content %}

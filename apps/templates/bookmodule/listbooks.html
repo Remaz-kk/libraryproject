@@ -1,0 +1,18 @@
+{% extends "bookmodule/layouts/base.html" %}
+{% load static %}
+
+{% block title %}List Books{% endblock title %}
+
+{% block content %}
+<h1>List of Books</h1>
+
+<ul>
+  <li><a href="{% url 'books:onebook' 1 %}">Book 1</a></li>
+  <li><a href="{% url 'books:onebook' 2 %}">Book 2</a></li>
+  <li><a href="{% url 'books:onebook' 3 %}">Book 3</a></li>
+</ul>
+
+<img src="{% static 'book1.jpg' %}" width="180" alt="Book 1">
+<img src="{% static 'book2.jpg' %}" width="180" alt="Book 2">
+<img src="{% static 'book3.jpg' %}" width="180" alt="Book 3">
+{% endblock content %}

@@ -1,0 +1,18 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+h1 {
+  color: blue;
+}
+
+.topnav a {
+  margin-right: 12px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+img {
+  border: 2px solid black;
+}

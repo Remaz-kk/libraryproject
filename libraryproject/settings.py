@@ -15,7 +15,10 @@ import os
 ...
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_DIR = os.path.join(BASE_DIR, "apps" + os.sep + "templates")
-
+STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "apps/static")
+]
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
@@ -31,7 +34,8 @@ ALLOWED_HOSTS = []
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_DIR = os.path.join(BASE_DIR, "apps", "templates")
 
-
+STATIC_URL = 'static/'
+STATICFILES_DIRS = [( os.path.join(BASE_DIR, "apps/static"))]
 
 # Application definition
 

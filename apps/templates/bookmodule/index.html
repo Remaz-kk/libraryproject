@@ -1,1 +1,15 @@
-<h1>Hello from {{ name }}!</h1>
+{% extends "bookmodule/layouts/base.html" %}
+{% load static %}
+
+{% block title %}Library Home{% endblock title %}
+
+{% block content %}
+<h1>Welcome to the Library</h1>
+
+<img src="{% static 'book1.jpg' %}" width="200" alt="Book 1">
+
+<p>
+  <a href="{% url 'books:listbooks' %}">List Books</a> |
+  <a href="{% url 'books:aboutus' %}">About Us</a>
+</p>
+{% endblock content %}
