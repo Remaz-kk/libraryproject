@@ -1,0 +1,156 @@
+/* Container styling using ID */
+#links-container {
+    padding: 30px;
+    text-align: center;
+}
+
+/* Link styling using class */
+.link1 {
+    display: block;
+    padding: 15px;
+    background-color: lightgreen;
+    color: red;
+    text-decoration: none;
+}
+
+.link2 {
+    display: block;
+    padding: 15px;
+    background-color: gray;
+    color: yellow;
+    text-decoration: none;
+}
+
+.link3 {
+    display: block;
+    padding: 15px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+}
+
+.format-title {
+    text-align: center;
+    padding: 20px;
+    background-color: #d9f2d9;
+    border-radius: 8px;       
+    margin-bottom: 20px;
+}
+
+.listing-header {
+    background-color: #6fa6a6;   /* نفس لون الشريط بالصورة */
+    color: white;
+    padding: 15px;
+    margin: 0;
+}
+
+
+
+ul, ol {
+    padding-left: 40px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+a:visited {
+    color: purple;
+}
+
+a:hover {
+    background-color: orange;
+}
+
+a:active {
+    background-color: red;
+}
+
+/* -------- Task 4 Tables -------- */
+.table1, .table2 {
+    margin: 0 auto;              /* يخليها بالوسط */
+    border-collapse: collapse;
+}
+
+.table1 caption, .table2 caption {
+    caption-side: top;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.table1 th, .table1 td,
+.table2 th, .table2 td {
+    border: 1px solid #777;
+    padding: 6px 10px;
+    text-align: center;
+}
+
+.table1 th {
+    font-weight: bold;
+}
+
+.table2 {
+    width: 80%;
+}
+
+.table2 .camelTitle {
+    font-weight: bold;
+    height: 90px;
+    vertical-align: middle;
+}
+
+.table2 .imgCell {
+    width: 260px;
+}
+
+.camelImg {
+    width: 230px;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+/* Container styling using ID */
+#links-container {
+    padding: 30px;
+    text-align: center;
+}
+
+/* Link styling using class */
+.link1 {
+    display: block;
+    padding: 15px;
+    background-color: lightgreen;
+    color: red;
+    text-decoration: none;
+}
+
+.link2 {
+    display: block;
+    padding: 15px;
+    background-color: gray;
+    color: yellow;
+    text-decoration: none;
+}
+
+.link3 {
+    display: block;
+    padding: 15px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+}
+
+/* Link States */
+a:visited {
+    color: purple;
+}
+
+a:hover {
+    background-color: orange;
+}
+
+a:active {
+    background-color: red;
+}

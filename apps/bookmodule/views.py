@@ -4,6 +4,19 @@ from django.shortcuts import render
 
 from django.shortcuts import render
 
+
+def html5_tables(request):
+    return render(request, "bookmodule/html5_tables.html")
+
+def html5_listing(request):
+    return render(request, "bookmodule/html5_listing.html")
+
+def html5_text_formatting(request):
+    return render(request, "bookmodule/html5_text_formatting.html")
+
+def html5_links(request):
+    return render(request, "bookmodule/html5_links.html")
+
 def index(request):
     return render(request, "bookmodule/index.html")
 
@@ -15,10 +28,11 @@ def onebook(request, bookId):
 
 def aboutus(request):
     return render(request, "bookmodule/aboutus.html")
-    
+
 def index(request):
     name = request.GET.get("name") or "world!"
     return render(request, "bookmodule/index.html", {"name": name})
+
 
 
 def index2(request, val1=0):
