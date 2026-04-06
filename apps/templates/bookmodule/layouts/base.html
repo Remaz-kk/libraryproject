@@ -11,19 +11,15 @@
     <link rel="icon" href="{% static 'qu-icon.png' %}">
 
     <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     {% block stylesheets %}{% endblock stylesheets %}
-    <link rel="stylesheet" href="{% static 'main.css' %}">
 </head>
-
 <body>
-
     {% include "bookmodule/includes/header.html" %}
-
     <div class="content">
         {% block content %}{% endblock content %}
     </div>
-
     {% include "bookmodule/includes/footer.html" %}
-
 </body>
 </html>
