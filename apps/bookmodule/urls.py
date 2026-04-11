@@ -13,6 +13,8 @@ urlpatterns = [
     path("html5/links/", views.html5_links, name="html5_links"),
     path("html5/text/formatting/", views.html5_text_formatting, name="html5_text_formatting"),
     path("search/", views.search, name="search"),
+    path("simple/query", views.simple_query, name="simple_query"),
+    path("complex/query/", views.lookup_query, name="lookup_query"),
     
     
 ]
