@@ -1,0 +1,12 @@
+{% extends "bookmodule/layouts/base.html" %}
+
+{% block title %}Lab8 Task4{% endblock %}
+
+{% block content %}
+<h2>Books ordered by title</h2>
+
+{% for obj in books %}
+    ID: {{ obj.id }}, Title: {{ obj.title }}
+    <hr>
+{% endfor %}
+{% endblock %}

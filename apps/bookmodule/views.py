@@ -2,7 +2,52 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 from .models import Book
+from django.shortcuts import render
+from django.db.models import Q, Count, Sum, Avg, Max, Min
+from .models import Book, Address, Student
 
+
+from django.db.models import Count
+from .models import Address
+
+def lab8_task7(request):
+    cities = Address.objects.annotate(num_students=Count('student'))
+    return render(request, 'bookmodule/lab8_task7.html', {'cities': cities})
+
+
+def lab8_task5(request):
+    stats = Book.objects.aggregate(
+        count_books=Count('id'),
+        total_price=Sum('price'),
+        avg_price=Avg('price'),
+        max_price=Max('price'),
+        min_price=Min('price')
+    )
+    return render(request, 'bookmodule/lab8_task5.html', {'stats': stats})
+
+
+
+def lab8_task4(request):
+    books = Book.objects.all().order_by('title')
+    return render(request, 'bookmodule/lab8_task4.html', {'books': books})
+
+def lab8_task3(request):
+    books = Book.objects.filter(
+        Q(edition__lte=2) & (~Q(title__icontains='qu') | ~Q(author__icontains='qu'))
+    )
+    return render(request, 'bookmodule/lab8_task3.html', {'books': books})
+
+
+def lab8_task2(request):
+    books = Book.objects.filter(
+        Q(edition__gt=2) & (Q(title__icontains='qu') | Q(author__icontains='qu'))
+    )
+    return render(request, 'bookmodule/lab8_task2.html', {'books': books})
+
+
+def lab8_task1(request):
+    books = Book.objects.filter(Q(price__lte=50))
+    return render(request, 'bookmodule/lab8_task1.html', {'books': books})
 
 def lookup_query(request):
     mybooks = Book.objects.filter(author__isnull=False).filter(title__icontains='and').filter(edition__gte=2).exclude(price__lte=100)[:10]

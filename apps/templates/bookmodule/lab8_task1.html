@@ -1,0 +1,14 @@
+{% extends "bookmodule/layouts/base.html" %}
+
+{% block title %}Lab8 Task1{% endblock %}
+
+{% block content %}
+<h2>Books with price less than or equal to 50</h2>
+
+{% for obj in books %}
+    ID: {{ obj.id }}, Title: {{ obj.title }}, Price: {{ obj.price }}
+    <hr>
+{% empty %}
+    <p>No books found.</p>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "bookmodule/layouts/base.html" %}
+
+{% block title %}Lab8 Task2{% endblock %}
+
+{% block content %}
+<h2>Books with edition greater than 2 and title or author contains "qu"</h2>
+
+{% for obj in books %}
+    ID: {{ obj.id }}, Title: {{ obj.title }}, Author: {{ obj.author }}, Edition: {{ obj.edition }}
+    <hr>
+{% empty %}
+    <p>No books found.</p>
+{% endfor %}
+{% endblock %}

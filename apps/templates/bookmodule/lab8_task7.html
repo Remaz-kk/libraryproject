@@ -1,0 +1,12 @@
+{% extends "bookmodule/layouts/base.html" %}
+
+{% block title %}Lab8 Task7{% endblock %}
+
+{% block content %}
+<h2>Number of students in each city</h2>
+
+{% for city in cities %}
+    City: {{ city.city }} - Number of students: {{ city.num_students }}
+    <hr>
+{% endfor %}
+{% endblock%}
