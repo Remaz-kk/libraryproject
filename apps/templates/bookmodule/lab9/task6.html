@@ -1,0 +1,22 @@
+{% extends "bookmodule/layouts/base.html" %}
+
+{% block title %}Lab9 Task6{% endblock title %}
+
+{% block content %}
+<h2>Filtered Books Count for Each Publisher </h2>
+
+<table border="1" cellpadding="8">
+    <tr>
+        <th>Publisher</th>
+        <th>Filtered Books Count</th>
+    </tr>
+
+    {% for pub in publishers %}
+    <tr>
+        <td>{{ pub.name }}</td>
+        <td>{{ pub.filtered_books_count }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock content %}

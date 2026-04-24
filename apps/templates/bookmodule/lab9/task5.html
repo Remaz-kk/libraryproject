@@ -1,0 +1,22 @@
+{% extends "bookmodule/layouts/base.html" %}
+
+{% block title %}Lab9 Task5{% endblock title %}
+
+{% block content %}
+<h2>Highly Rated Books Count for Each Publisher</h2>
+
+<table border="1" cellpadding="8">
+    <tr>
+        <th>Publisher</th>
+        <th>Highly Rated Books</th>
+    </tr>
+
+    {% for pub in publishers %}
+    <tr>
+        <td>{{ pub.name }}</td>
+        <td>{{ pub.high_rated_count }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock content %}
