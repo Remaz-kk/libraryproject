@@ -1,0 +1,32 @@
+
+<h1>Students with Multiple Addresses</h1>
+
+<a href="/books/lab11/addstudent2/">Add New Student</a>
+
+<table border="1" cellpadding="8">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Addresses</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for student in students %}
+    <tr>
+        <td>{{ student.id }}</td>
+        <td>{{ student.name }}</td>
+        <td>{{ student.age }}</td>
+        <td>
+            {% for address in student.addresses.all %}
+                {{ address.city }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </td>
+        <td>
+            <a href="/books/lab11/editstudent2/{{ student.id }}/">Edit</a>
+            |
+            <a href="/books/lab11/deletestudent2/{{ student.id }}/">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>

@@ -35,4 +35,20 @@ urlpatterns = [
     path("lab9_part2/addbook/", views.lab10_part2_addbook, name="lab10_part2_addbook"),
     path("lab9_part2/editbook/<int:id>/", views.lab10_part2_editbook, name="lab10_part2_editbook"),
     path("lab9_part2/deletebook/<int:id>/", views.lab10_part2_deletebook, name="lab10_part2_deletebook"),
+    path("lab11/liststudents/", views.lab11_list_students, name="lab11_list_students"),
+    path("lab11/addstudent/", views.lab11_add_student, name="lab11_add_student"),
+    path("lab11/editstudent/<int:id>/", views.lab11_edit_student, name="lab11_edit_student"),
+    path("lab11/deletestudent/<int:id>/", views.lab11_delete_student, name="lab11_delete_student"),
+
+    path("lab11/liststudents2/", views.lab11_list_students2, name="lab11_list_students2"),
+    path("lab11/addstudent2/", views.lab11_add_student2, name="lab11_add_student2"),
+    path("lab11/editstudent2/<int:id>/", views.lab11_edit_student2, name="lab11_edit_student2"),
+    path("lab11/deletestudent2/<int:id>/", views.lab11_delete_student2, name="lab11_delete_student2"),
+
+    path("lab11/listimages/", views.lab11_list_images, name="lab11_list_images"),
+    path("lab11/addimage/", views.lab11_add_image, name="lab11_add_image"),
+    path("lab11/deleteimage/<int:id>/", views.lab11_delete_image, name="lab11_delete_image"),
+    path('users/register/', views.registerUser, name='register'),
+
+
 ]

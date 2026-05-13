@@ -1,0 +1,17 @@
+<h1>Register</h1>
+
+{% for message in messages %}
+    <p>{{ message }}</p>
+{% endfor %}
+
+<form method="POST">
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">Register</button>
+
+</form>
+
+<a href="/users/login/">Login</a>

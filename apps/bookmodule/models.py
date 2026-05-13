@@ -1,6 +1,55 @@
 from django.db import models
 
 
+from django.db import models
+
+
+
+class Address(models.Model):
+    city = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.city
+
+
+class Student(models.Model):
+    name = models.CharField(max_length=100)
+    age = models.IntegerField()
+    address = models.ForeignKey(Address, on_delete=models.CASCADE)
+
+    image = models.ImageField(upload_to='students/', null=True, blank=True)
+
+    def __str__(self):
+        return self.name
+
+
+
+class Address2(models.Model):
+    city = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.city
+
+
+class Student2(models.Model):
+    name = models.CharField(max_length=100)
+    age = models.IntegerField()
+    addresses = models.ManyToManyField(Address2)
+
+    def __str__(self):
+        return self.name
+    
+
+
+class StudentImage(models.Model):
+    name = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='student_images/')
+
+    def __str__(self):
+        return self.name
+
+
+
 
 class Publisher(models.Model):
     name = models.CharField(max_length=200)
@@ -31,18 +80,6 @@ class Book(models.Model):
     def __str__(self):
         return self.title
 
-class Address(models.Model):
-    city = models.CharField(max_length=50)
- 
-    def __str__(self):
-        return self.city
 
 
-class Student(models.Model):
-    name = models.CharField(max_length=50)
-    age = models.IntegerField()
-    address = models.ForeignKey(Address, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.name
     

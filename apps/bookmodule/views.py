@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
 from .models import Book
 from django.shortcuts import render
@@ -28,6 +29,149 @@ from django.db.models import Sum
 from .models import Publisher
 from django.db.models import Sum
 from .models import Publisher
+from .models import Student2, Address2
+from .forms import Student2Form, Address2Form
+
+from .models import Student, Address
+from .forms import StudentForm, AddressForm
+
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import Student, Address, Student2, Address2, StudentImage
+from .forms import StudentForm, Student2Form, StudentImageForm
+
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
+from django.shortcuts import render, redirect
+
+def registerUser(request):
+
+    form = UserCreationForm()
+
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+
+            messages.success(request, 'You have successfully registered')
+
+            return redirect('/users/login/')
+
+        else:
+            messages.error(request, 'Registration error. Please check the form.')
+
+    context = {'form': form}
+
+    return render(request, 'bookmodule/register.html', context)
+
+
+# Task 1: One address for each student
+@login_required(login_url='/users/login/')
+def lab11_list_students(request):
+    students = Student.objects.all()
+    return render(request, 'bookmodule/lab11/list_students.html', {'students': students})
+
+@login_required(login_url='/users/login/')
+def lab11_add_student(request):
+    if request.method == "POST":
+        form = StudentForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('books:lab11_list_students')
+    else:
+        form = StudentForm()
+
+    return render(request, 'bookmodule/lab11/add_student.html', {'form': form})
+
+@login_required(login_url='/users/login/')
+def lab11_edit_student(request, id):
+    student = get_object_or_404(Student, id=id)
+
+    if request.method == "POST":
+        form = StudentForm(request.POST, request.FILES, instance=student)
+        if form.is_valid():
+            form.save()
+            return redirect('books:lab11_list_students')
+    else:
+        form = StudentForm(instance=student)
+
+    return render(request, 'bookmodule/lab11/edit_student.html', {'form': form})
+
+@login_required(login_url='/users/login/')
+def lab11_delete_student(request, id):
+    student = get_object_or_404(Student, id=id)
+    student.delete()
+    return redirect('books:lab11_list_students')
+
+
+# Task 2: Many-to-many addresses
+@login_required(login_url='/users/login/')
+def lab11_list_students2(request):
+    students = Student2.objects.all()
+    return render(request, 'bookmodule/lab11/list_students2.html', {'students': students})
+
+@login_required(login_url='/users/login/')
+def lab11_add_student2(request):
+    if request.method == "POST":
+        form = Student2Form(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('books:lab11_list_students2')
+    else:
+        form = Student2Form()
+
+    return render(request, 'bookmodule/lab11/add_student2.html', {'form': form})
+
+@login_required(login_url='/users/login/')
+def lab11_edit_student2(request, id):
+    student = get_object_or_404(Student2, id=id)
+
+    if request.method == "POST":
+        form = Student2Form(request.POST, instance=student)
+        if form.is_valid():
+            form.save()
+            return redirect('books:lab11_list_students2')
+    else:
+        form = Student2Form(instance=student)
+
+    return render(request, 'bookmodule/lab11/edit_student2.html', {'form': form})
+
+@login_required(login_url='/users/login/')
+def lab11_delete_student2(request, id):
+    student = get_object_or_404(Student2, id=id)
+    student.delete()
+    return redirect('books:lab11_list_students2')
+
+
+# Task 3: Image handling
+@login_required
+def lab11_list_images(request):
+    students = StudentImage.objects.all()
+    return render(request, 'bookmodule/lab11/list_images.html', {'students': students})
+
+@login_required
+def lab11_add_image(request):
+    if request.method == "POST":
+        form = StudentImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('books:lab11_list_images')
+    else:
+        form = StudentImageForm()
+
+    return render(request, 'bookmodule/lab11/add_image.html', {'form': form})
+
+@login_required
+def lab11_delete_image(request, id):
+    student = get_object_or_404(StudentImage, id=id)
+    student.delete()
+    return redirect('books:lab11_list_images')
+
+
+
+
+
+
 
 def lab10_part2_deletebook(request, id):
     book = get_object_or_404(Book, id=id)

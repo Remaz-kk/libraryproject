@@ -1,0 +1,48 @@
+
+<h1>Students List</h1>
+
+<a href="/books/lab11/addstudent/">Add New Student</a>
+
+<br><br>
+
+<table border="1" cellpadding="8">
+
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Address</th>
+        <th>Image</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for student in students %}
+
+    <tr>
+
+        <td>{{ student.id }}</td>
+
+        <td>{{ student.name }}</td>
+
+        <td>{{ student.age }}</td>
+
+        <td>{{ student.address.city }}</td>
+
+        <td>
+            {% if student.image %}
+                <img src="{{ student.image.url }}" width="100">
+            {% endif %}
+        </td>
+
+        <td>
+            <a href="/books/lab11/editstudent/{{ student.id }}/">Edit</a>
+            |
+            <a href="/books/lab11/deletestudent/{{ student.id }}/">Delete</a>
+        </td>
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+<a href="/users/logout/">Logout</a>
